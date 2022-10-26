@@ -847,17 +847,23 @@ func TestAmount_Value(t *testing.T) {
 
 func TestAmount_Scan(t *testing.T) {
 	tests := []struct {
-		src              string
+		src              interface{}
 		wantNumber       string
 		wantCurrencyCode string
 		wantError        string
 	}{
+		{10, "0", "", "unsupported type"},
 		{"", "0", "", ""},
 		{"(3.45,USD)", "3.45", "USD", ""},
 		{"(3.45,)", "0", "", `invalid currency code ""`},
 		{"(,USD)", "0", "", `invalid number ""`},
 		{"(0,)", "0", "", ""},
 		{"(0,   )", "0", "", ""},
+		{[]uint8("(3.45,USD)"), "3.45", "USD", ""},
+		{[]uint8("(3.45,)"), "0", "", `invalid currency code ""`},
+		{[]uint8("(,USD)"), "0", "", `invalid number ""`},
+		{[]uint8("(0,)"), "0", "", ""},
+		{[]uint8("(0,   )"), "0", "", ""},
 	}
 
 	for _, tt := range tests {

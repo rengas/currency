@@ -7,6 +7,7 @@ import (
 	"bytes"
 	"database/sql/driver"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"math/big"
 	"strings"
@@ -344,7 +345,17 @@ func (a Amount) Value() (driver.Value, error) {
 // Allows scanning amounts from a PostgreSQL composite type.
 func (a *Amount) Scan(src interface{}) error {
 	// Wire format: "(9.99,USD)".
-	input := src.(string)
+	var input string
+	switch src.(type) {
+	case string:
+		input = src.(string)
+	case []uint8:
+		bts := src.([]uint8)
+		input = string(bts)
+	default:
+		return errors.New("unsupported type")
+	}
+
 	if len(input) == 0 {
 		return nil
 	}

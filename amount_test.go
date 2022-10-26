@@ -10,7 +10,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/bojanz/currency"
+	"github.com/rengas/currency"
 )
 
 func TestNewAmount(t *testing.T) {

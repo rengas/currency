@@ -1,4 +1,4 @@
-# currency [![Build](https://github.com/bojanz/currency/actions/workflows/build.yml/badge.svg)](https://github.com/bojanz/currency/actions/workflows/build.yml) [![Coverage Status](https://coveralls.io/repos/github/bojanz/currency/badge.svg?branch=master)](https://coveralls.io/github/bojanz/currency?branch=master) [![Go Report Card](https://goreportcard.com/badge/github.com/bojanz/currency)](https://goreportcard.com/report/github.com/bojanz/currency) [![PkgGoDev](https://pkg.go.dev/badge/github.com/bojanz/currency)](https://pkg.go.dev/github.com/bojanz/currency)
+# currency [![Build](https://github.com/rengas/currency/actions/workflows/build.yml/badge.svg)](https://github.com/rengas/currency/actions/workflows/build.yml) [![Coverage Status](https://coveralls.io/repos/github/bojanz/currency/badge.svg?branch=master)](https://coveralls.io/github/bojanz/currency?branch=master) [![Go Report Card](https://goreportcard.com/badge/github.com/rengas/currency)](https://goreportcard.com/report/github.com/rengas/currency) [![PkgGoDev](https://pkg.go.dev/badge/github.com/rengas/currency)](https://pkg.go.dev/github.com/rengas/currency)
 
 Handles currency amounts, provides currency information and formatting.
 
@@ -104,4 +104,4 @@ row := tx.QueryRow(ctx, `SELECT id, name, price, created_at, updated_at FROM pro
 err := row.Scan(&p.ID, &p.Name, &p.Price, &p.CreatedAt, &p.UpdatedAt)
 ```
 
-See our [database integration notes](https://github.com/bojanz/currency/wiki/Database-integration-notes) for other examples (MySQL/MariaDB, SQLite).
+See our [database integration notes](https://github.com/rengas/currency/wiki/Database-integration-notes) for other examples (MySQL/MariaDB, SQLite).

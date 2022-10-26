@@ -23,7 +23,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/bojanz/currency"
+	"github.com/rengas/currency"
 )
 
 const assetDir = "raw"

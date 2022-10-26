@@ -6,7 +6,7 @@ package currency_test
 import (
 	"testing"
 
-	"github.com/bojanz/currency"
+	"github.com/rengas/currency"
 )
 
 func TestNewLocale(t *testing.T) {
